@@ -1,0 +1,77 @@
+﻿@model IEnumerable<CFA_CORE.Models.Customer>
+
+@{
+    ViewData["Title"] = "Customer Details";
+}
+
+<h1>Customer Details</h1>
+
+<p>
+    <a asp-action="Create"><i class="fa-solid fa-file-circle-plus"></i></a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderdDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_DOB)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_MobileNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_Email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_Password)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cust_ConfirmPassword)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_Age)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OrderdDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_DOB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_MobileNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_Password)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cust_ConfirmPassword)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.Cust_Id"><i class="fa-solid fa-user-pen"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.Cust_Id"><i class="fa-solid fa-circle-info"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.Cust_Id"><i class="fa-solid fa-trash"></i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
